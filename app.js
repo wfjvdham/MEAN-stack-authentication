@@ -16,7 +16,7 @@ var cors = require('cors');
 var passport = require('passport');
 
 // [SH] Bring in the data model
-require('./api/models/db');
+require('./api/model/db');
 // [SH] Bring in the Passport config after model is defined
 require('./api/config/passport');
 
@@ -48,7 +48,6 @@ app.use('/api', routesApi);
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
-    next(err);
 });
 
 // error handlers
@@ -63,7 +62,7 @@ app.use(function (err, req, res, next) {
 
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
+if (app.get('env') = 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
         res.render('error', {
@@ -82,6 +81,3 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
-
-module.exports = app;
